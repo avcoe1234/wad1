@@ -1,0 +1,18 @@
+ git init
+git add --a
+git commit -m "Resposive Web"
+git branch -M main
+
+#Optional
+git remote add origin https://github.com/Rohan-2910/WadPract3
+
+#Main Url
+git remote set-url origin https://github.com/Rohan-2910/WadPract3.git
+git pull origin main --rebase   
+ git push -u origin main 
+
+
+ #when new file is added in folder and push to the github
+ git add --a
+git commit -m "login page addde"    
+ git push -u origin main    
