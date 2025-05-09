@@ -1,0 +1,12 @@
+//mongodb compass commands
+https://github.com/avcoe1234/wad1
+use employee
+
+db.createCollection('profile')
+
+db.profile.insertOne({name:"Rohan",email:"12",city:"sangamner"})
+
+npm init -to create package.json
+create index.js and mongodb.js
+
+npm i mongodb

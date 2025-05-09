@@ -1,0 +1,33 @@
+const dbconnect=require('./mongodb')
+const express =require('express')
+const app=express()
+app.use(express.json())
+//GetApi
+app.get('/showemployee',async(req,resp)=>{
+    let result=await dbconnect()
+    result=await result.find().toArray();
+    resp.send(result )
+})
+//Post
+app.post('/add',async(req,resp)=>{
+    let result=await dbconnect()
+    result=await result.insertOne(req.body);
+    resp.send("Data Added Successfully" )
+})
+//Put
+app.put('/:name',async(req,resp)=>{
+    let result=await dbconnect()
+    result=await result.updateOne({name:req.params.name},{$set:req.body});
+    resp.send("Data Updated Successfully" )
+})
+
+//delete
+app.delete('/:name',async(req,resp)=>{
+    let result=await dbconnect()
+    result=await result.deleteOne({name:req.params.name});
+    resp.send("Data deleted Successfully" )
+})
+app.listen(8000,()=>
+{
+    console.log("Server is running");
+})
